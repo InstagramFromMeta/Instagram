@@ -1,0 +1,276 @@
+
+:root {
+  color-scheme: dark;
+  --background: #202022;
+  --border: #48484b;
+  --text: #f5f5f7;
+  --placeholder: #a5a5aa;
+  --blue: #0866e8;
+  --blue-text: #459fff;
+  --error: #ff626b;
+
+  --font-regular: "Optimistic Text", "SF Pro Text",
+    -apple-system, BlinkMacSystemFont, "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-regular);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Encabezado */
+.topbar {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: flex-start;
+  justify-content: center;
+  height: 145px;
+  padding-top: 53px;
+}
+
+.back-btn {
+  position: absolute;
+  top: 51px;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.back-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+}
+
+.logo img {
+  display: block;
+  width: 120px;
+  height: 35px;
+  object-fit: contain;
+}
+
+/* Campos */
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0 4.1%;
+}
+
+.field-group {
+  width: 100%;
+  min-width: 0;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  height: 82px;
+  padding: 0 20px;
+  border: 2px solid var(--border);
+  border-radius: 25px;
+  outline: none;
+  appearance: none;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-regular);
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.field::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+
+.field:focus {
+  border-color: #737378;
+}
+
+.field.invalid {
+  border-color: var(--error);
+}
+
+/* Error de cada campo: solo texto, sin recuadro */
+.field-error {
+  display: none;
+  margin: 7px 10px 0;
+  color: var(--error);
+  font-family: var(--font-regular);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.field-error.visible {
+  display: block;
+}
+
+/* Botón principal: peso 700 */
+.login-btn {
+  width: 100%;
+  min-height: 60px;
+  padding: 16px;
+  border: none;
+  border-radius: 50px;
+  background: var(--blue);
+  color: #fff;
+  font-family: var(--font-regular);
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-btn:active {
+  background: #0656d6;
+}
+
+/* Enlace secundario: peso 500 */
+.forgot {
+  display: block;
+  margin-top: 2px;
+  color: var(--text);
+  font-family: var(--font-regular);
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Mensaje general: texto rojo sin fondo ni borde */
+.notice {
+  display: none;
+  margin: 16px 4.1% 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--error);
+  font-family: var(--font-regular);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.notice.visible {
+  display: block;
+}
+
+.spacer {
+  flex: 1;
+  min-height: 100px;
+}
+
+.bottom {
+  padding: 0 4.1% 28px;
+}
+
+/* Botón inferior: peso 700 */
+.signup-btn {
+  display: block;
+  width: 100%;
+  min-height: 62px;
+  padding: 16px;
+  border: 1.5px solid var(--blue-text);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--blue-text);
+  font-family: var(--font-regular);
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+.signup-btn:active {
+  background: rgba(69, 159, 255, 0.08);
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 380px) {
+  .topbar {
+    height: 125px;
+    padding-top: 43px;
+  }
+
+  .back-btn {
+    top: 41px;
+  }
+
+  #login-form {
+    gap: 14px;
+  }
+
+  .field {
+    height: 68px;
+    padding: 0 18px;
+    border-radius: 25px;
+    font-size: 16px;
+  }
+
+  .login-btn {
+    min-height: 58px;
+    font-size: 16px;
+  }
+
+  .forgot {
+    font-size: 15px;
+  }
+
+  .signup-btn {
+    min-height: 58px;
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
